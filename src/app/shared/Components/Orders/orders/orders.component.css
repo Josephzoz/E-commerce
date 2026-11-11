@@ -1,0 +1,25 @@
+/* Custom accordion styles for smooth interactions */
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary {
+  list-style: none;
+}
+
+/* Ensure show/hide button state toggles correctly across browsers */
+details[open] {
+  border-color: #10b981;
+}
+details[open] .details-btn {
+  display: none !important;
+}
+details:not([open]) .hide-btn {
+  display: none !important;
+}
+details[open] .hide-btn {
+  display: inline-flex !important;
+}
+details:not([open]) .details-btn {
+  display: inline-flex !important;
+}
+

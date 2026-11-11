@@ -1,0 +1,376 @@
+<section
+  class="min-h-screen bg-gray-50/50 py-8 sm:py-12 lg:py-16 flex items-center justify-center font-sans"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
+      <div class="hidden lg:flex flex-col items-center text-center lg:col-span-6">
+        <div
+          class="w-full max-w-md bg-gradient-to-br from-emerald-50/70 via-[#f0fdf4] to-emerald-100/40 rounded-3xl p-10 sm:p-14 relative overflow-hidden border border-emerald-100/60 shadow-xs flex flex-col items-center justify-center min-h-[300px]"
+        >
+          <div
+            class="absolute -top-10 -left-10 w-44 h-44 bg-emerald-200/25 rounded-full blur-2xl pointer-events-none"
+          ></div>
+          <div
+            class="absolute -bottom-10 -right-10 w-48 h-48 bg-emerald-200/25 rounded-full blur-2xl pointer-events-none"
+          ></div>
+          <div
+            class="absolute top-1/2 -right-4 -translate-y-1/2 w-28 h-28 bg-emerald-300/15 rounded-full blur-xl pointer-events-none"
+          ></div>
+
+          <div class="relative z-10 flex items-center justify-center">
+            <div
+              class="w-14 h-14 bg-white rounded-2xl shadow-md border border-gray-100/80 flex items-center justify-center -rotate-12 transform -mr-3 z-0 transition duration-300 hover:scale-105"
+            >
+              <i class="fa-solid fa-envelope text-[#16a34a] text-lg"></i>
+            </div>
+
+            <div
+              class="w-20 h-20 bg-white rounded-3xl shadow-xl border border-gray-100 flex items-center justify-center z-10 relative transition duration-300 hover:scale-105"
+            >
+              <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center">
+                <i class="fa-solid fa-lock text-[#16a34a] text-2xl"></i>
+              </div>
+            </div>
+
+            <div
+              class="w-14 h-14 bg-white rounded-2xl shadow-md border border-gray-100/80 flex items-center justify-center rotate-12 transform -ml-3 z-0 transition duration-300 hover:scale-105"
+            >
+              <i class="fa-solid fa-shield-halved text-[#16a34a] text-lg"></i>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-2 mt-8 z-10">
+            <span class="w-2 h-2 rounded-full bg-[#16a34a]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#16a34a]"></span>
+            <span class="w-2 h-2 rounded-full bg-[#16a34a]"></span>
+          </div>
+        </div>
+
+        <h2 class="text-2xl xl:text-3xl font-bold text-gray-900 mt-8 tracking-tight">
+          Reset Your Password
+        </h2>
+
+        <p class="text-gray-500 text-sm sm:text-base mt-3 max-w-sm mx-auto leading-relaxed">
+          Don't worry, it happens to the best of us. We'll help you get back into your account in no
+          time.
+        </p>
+
+        <div
+          class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 mt-6 text-xs sm:text-sm text-gray-600 font-medium"
+        >
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-envelope text-[#16a34a] text-sm"></i>
+            <span>Email Verification</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-[#16a34a] text-sm"></i>
+            <span>Secure Reset</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-lock text-[#16a34a] text-sm"></i>
+            <span>Encrypted</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full max-w-md mx-auto lg:max-w-none lg:col-span-6">
+        @if (forgotPasswordFlag()) {
+          <div
+            class="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-gray-100"
+          >
+            <div class="text-center mb-6">
+              <span class="text-3xl font-extrabold tracking-tight">
+                <span class="text-[#16a34a]">Fresh</span><span class="text-gray-900">Cart</span>
+              </span>
+              <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-3 tracking-tight">
+                Forgot Password?
+              </h1>
+              <p class="text-xs sm:text-sm text-gray-500 mt-1.5">
+                No worries, we'll send you a reset code
+              </p>
+            </div>
+
+            <div class="flex items-center justify-center max-w-[280px] mx-auto my-6 sm:my-8">
+              <div
+                class="w-9 h-9 rounded-full bg-[#16a34a] text-white flex items-center justify-center shadow-md shadow-[#16a34a]/30 shrink-0"
+              >
+                <i class="fa-solid fa-envelope text-xs"></i>
+              </div>
+
+              <div class="flex-1 h-0.5 bg-gray-200 mx-2"></div>
+
+              <div
+                class="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-key text-xs"></i>
+              </div>
+
+              <div class="flex-1 h-0.5 bg-gray-200 mx-2"></div>
+
+              <div
+                class="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-lock text-xs"></i>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="space-y-4">
+                <label
+                  for="step1-email"
+                  class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5"
+                >
+                  Email Address
+                </label>
+                <div class="relative flex items-center">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"
+                  >
+                    <i class="fa-regular fa-envelope text-sm"></i>
+                  </div>
+                  <input
+                    [formControl]="email"
+                    id="step1-email"
+                    type="email"
+                    placeholder="Enter your email address"
+                    class="w-full pl-10 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#16a34a] focus:ring-2 focus:ring-[#16a34a]/20 transition duration-150 text-gray-800 placeholder-gray-400"
+                  />
+                </div>
+              </div>
+
+              <button
+                (click)="forgotPassword()"
+                type="button"
+                class="w-full mt-2 bg-[#16a34a] hover:bg-[#15803d] text-white font-semibold py-3 sm:py-3.5 px-4 rounded-xl transition duration-150 shadow-sm text-xs sm:text-sm cursor-pointer"
+              >
+                Send Reset Code
+              </button>
+
+              <div class="pt-2 text-center">
+                <a
+                  routerLink="/login"
+                  class="inline-flex items-center justify-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-[#16a34a] font-medium transition cursor-pointer"
+                >
+                  <i class="fa-solid fa-arrow-left text-[11px]"></i>
+                  <span>Back to Sign In</span>
+                </a>
+              </div>
+
+              <div class="pt-4 text-center text-xs sm:text-sm text-gray-500">
+                Remember your password?
+                <a
+                  routerLink="/login"
+                  class="text-[#16a34a] font-semibold hover:underline cursor-pointer ml-1"
+                >
+                  Sign In
+                </a>
+              </div>
+            </div>
+          </div>
+        }
+
+        @if (codeFlag()) {
+          <div
+            class="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-gray-100"
+          >
+            <div class="text-center mb-6">
+              <span class="text-3xl font-extrabold tracking-tight">
+                <span class="text-[#16a34a]">Fresh</span><span class="text-gray-900">Cart</span>
+              </span>
+              <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-3 tracking-tight">
+                Check Your Email
+              </h1>
+              <p class="text-xs sm:text-sm text-gray-500 mt-1.5">
+                Enter the 6-digit code sent to {{ email.value }}
+              </p>
+            </div>
+
+            <div class="flex items-center justify-center max-w-[280px] mx-auto my-6 sm:my-8">
+              <div
+                class="w-9 h-9 rounded-full bg-[#16a34a] text-white flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+
+              <div class="flex-1 h-0.5 bg-[#16a34a] mx-2"></div>
+
+              <div
+                class="w-9 h-9 rounded-full bg-[#16a34a] text-white flex items-center justify-center shadow-md shadow-[#16a34a]/30 shrink-0"
+              >
+                <i class="fa-solid fa-key text-xs"></i>
+              </div>
+
+              <div class="flex-1 h-0.5 bg-gray-200 mx-2"></div>
+
+              <div
+                class="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-lock text-xs"></i>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <label
+                  for="step2-code"
+                  class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5"
+                >
+                  Verification Code
+                </label>
+                <div class="relative">
+                  <input
+                    [formControl]="resetCode"
+                    id="step2-code"
+                    type="text"
+                    maxlength="6"
+                    placeholder="• • • • • •"
+                    class="w-full text-center tracking-[0.5em] text-lg sm:text-xl font-semibold py-2.5 sm:py-3 px-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#16a34a] focus:ring-2 focus:ring-[#16a34a]/20 transition duration-150 text-gray-800 placeholder-gray-400"
+                  />
+                </div>
+
+                <p class="text-center text-xs sm:text-sm text-gray-500 mt-2.5">
+                  Didn't receive the code?
+                  <button
+                    type="button"
+                    class="text-[#16a34a] font-semibold hover:underline cursor-pointer ml-1"
+                  >
+                    Resend Code
+                  </button>
+                </p>
+              </div>
+
+              <button
+                (click)="code()"
+                type="button"
+                class="w-full mt-2 bg-[#16a34a] hover:bg-[#15803d] text-white font-semibold py-3 sm:py-3.5 px-4 rounded-xl transition duration-150 shadow-sm text-xs sm:text-sm cursor-pointer"
+              >
+                Verify Code
+              </button>
+
+              <div class="pt-2 text-center">
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-[#16a34a] font-medium transition cursor-pointer"
+                >
+                  <i class="fa-solid fa-arrow-left text-[11px]"></i>
+                  <span>Change email address</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+
+        @if (changePasswordFlag()) {
+          <div
+            class="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-gray-100"
+          >
+            <div class="text-center mb-6">
+              <span class="text-3xl font-extrabold tracking-tight">
+                <span class="text-[#16a34a]">Fresh</span><span class="text-gray-900">Cart</span>
+              </span>
+              <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-3 tracking-tight">
+                Create New Password
+              </h1>
+              <p class="text-xs sm:text-sm text-gray-500 mt-1.5">
+                Your new password must be different from previous passwords
+              </p>
+            </div>
+
+            <div class="flex items-center justify-center max-w-[280px] mx-auto my-6 sm:my-8">
+              <div
+                class="w-9 h-9 rounded-full bg-[#16a34a] text-white flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+
+              <div class="flex-1 h-0.5 bg-[#16a34a] mx-2"></div>
+
+              <div
+                class="w-9 h-9 rounded-full bg-[#16a34a] text-white flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+
+              <div class="flex-1 h-0.5 bg-[#16a34a] mx-2"></div>
+
+              <div
+                class="w-9 h-9 rounded-full bg-[#16a34a] text-white flex items-center justify-center shadow-md shadow-[#16a34a]/30 shrink-0"
+              >
+                <i class="fa-solid fa-lock text-xs"></i>
+              </div>
+            </div>
+
+            <form class="space-y-4" [formGroup]="resetPasswordForm" (ngSubmit)="changePassword()">
+              <div>
+                <label
+                  for="step3-new-password"
+                  class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5"
+                >
+                  New Password
+                </label>
+                <div class="relative flex items-center">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"
+                  >
+                    <i class="fa-solid fa-lock text-sm"></i>
+                  </div>
+                  <input
+                    formControlName="newPassword"
+                    id="step3-new-password"
+                    type="password"
+                    placeholder="Enter new password"
+                    class="w-full pl-10 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#16a34a] focus:ring-2 focus:ring-[#16a34a]/20 transition duration-150 text-gray-800 placeholder-gray-400"
+                  />
+                  <button
+                    type="button"
+                    aria-label="Toggle password visibility"
+                    class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none"
+                  >
+                    <i class="fa-regular fa-eye text-sm"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="step3-confirm-password"
+                  class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5"
+                >
+                  Confirm Password
+                </label>
+                <div class="relative flex items-center">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400"
+                  >
+                    <i class="fa-solid fa-lock text-sm"></i>
+                  </div>
+                  <input
+                    formControlName="rePassword"
+                    id="step3-confirm-password"
+                    type="password"
+                    placeholder="Confirm new password"
+                    class="w-full pl-10 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#16a34a] focus:ring-2 focus:ring-[#16a34a]/20 transition duration-150 text-gray-800 placeholder-gray-400"
+                  />
+                  <button
+                    type="button"
+                    aria-label="Toggle password visibility"
+                    class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none"
+                  >
+                    <i class="fa-regular fa-eye text-sm"></i>
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full mt-2 bg-[#16a34a] hover:bg-[#15803d] text-white font-semibold py-3 sm:py-3.5 px-4 rounded-xl transition duration-150 shadow-sm text-xs sm:text-sm cursor-pointer"
+              >
+                Reset Password
+              </button>
+            </form>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+ <section class="py-8 sm:py-10 md:py-12 bg-white">
+  <div class="container mx-auto px-4">
+   
+    <div class="flex items-center justify-between mb-6 sm:mb-8">
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <span class="w-1.5 h-6 sm:h-7 bg-emerald-600 rounded-full inline-block shrink-0"></span>
+        <h2 class="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
+          Shop By <span class="text-emerald-600">Category</span>
+        </h2>
+      </div>
+      <a
+        routerLink="/categories"
+        class="inline-flex items-center gap-1.5 sm:gap-2 text-emerald-600 hover:text-emerald-700 font-medium text-xs sm:text-sm transition-colors group"
+      >
+        <span>View All Categories</span>
+        <i class="fa-solid fa-arrow-right text-xs transition-transform duration-200 group-hover:translate-x-1"></i>
+      </a>
+    </div>
+
+    
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-3 sm:gap-4 md:gap-3.5 lg:gap-5">
+      @for (category of categories(); track category._id) {
+        <a
+          [routerLink]="['/categories','subcategories',category._id]"
+          class="bg-white rounded-2xl p-4 sm:p-5 md:p-3.5 lg:p-5 border border-gray-100 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-20 h-20 sm:w-24 sm:h-24 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 rounded-full overflow-hidden bg-gray-50 flex items-center justify-center mb-3 sm:mb-4 shrink-0 transition-transform duration-300 group-hover:scale-105"
+          >
+            <img
+              [src]="category.image"
+              [alt]="category.name"
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+          <h3
+            class="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-emerald-600 transition-colors text-center line-clamp-1 w-full"
+            [title]="category.name"
+          >
+            {{ category.name }}
+          </h3>
+        </a>
+      }
+    </div>
+  </div>
+</section>

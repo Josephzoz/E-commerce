@@ -1,0 +1,244 @@
+
+<div class="flex flex-col gap-4 sm:gap-6">
+  @for(order of orders; track order._id){
+  <details
+    class="group bg-white rounded-2xl border border-gray-200 open:border-emerald-500 shadow-xs hover:shadow-sm transition-all duration-200 overflow-hidden"
+  >
+    <summary
+      class="p-5 sm:p-6 cursor-pointer list-none select-none [&::-webkit-details-marker]:hidden"
+    >
+      <div class="flex items-start justify-between gap-4">
+      
+        <div class="flex items-start gap-4 sm:gap-5 flex-1 min-w-0">
+       
+          <div
+            class="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center p-2 shrink-0"
+          >
+            <img
+              [src]="order.cartItems?.[0]?.product?.imageCover"
+              [alt]="order.cartItems?.[0]?.product?.title"
+              class="w-full h-full object-contain"
+            />
+            @if(order.cartItems.length > 1){
+            <span
+              class="absolute -top-2 -right-2 bg-gray-900 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shadow-xs"
+            >
+              +{{ order.cartItems.length - 1 }}
+            </span>
+            }
+          </div>
+
+        
+          <div class="min-w-0 flex-1 space-y-2">
+        
+            @if(order.isDelivered === false){
+            <div>
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FEF3C7] text-amber-700"
+              >
+                <i class="fa-regular fa-clock text-xs text-amber-600"></i>
+                <span>Processing</span>
+              </span>
+            </div>
+            }@else {
+            <div>
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-700"
+              >
+                <i class="fa-solid fa-truck-fast text-xs text-sky-600"></i>
+                <span>On the way</span>
+              </span>
+            </div>
+            }
+
+           
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight flex items-center">
+              <span class="text-gray-400 font-semibold mr-1.5">#</span>
+              <span>{{ order.id }}</span>
+            </h3>
+
+            
+            <div
+              class="flex flex-wrap items-center gap-2 sm:gap-3 text-sm text-gray-500 font-medium"
+            >
+              <span class="inline-flex items-center gap-1.5">
+                <i class="fa-regular fa-calendar text-gray-400 text-sm"></i>
+                <span>{{ order.createdAt | date:'mediumDate' }}</span>
+              </span>
+              <span class="text-gray-300 select-none">•</span>
+              <span class="inline-flex items-center gap-1.5">
+                <i class="fa-solid fa-bag-shopping text-gray-400 text-sm"></i>
+                @if(order.cartItems.length === 1){
+                  <span>{{ order.cartItems[0].count }} {{ order.cartItems[0].count === 1 ? 'item' : 'items' }}</span>
+                }@else if(order.cartItems.length === 2){
+                  <span>{{ order.cartItems[0].count + order.cartItems[1].count }} items</span>
+                }@else if(order.cartItems.length === 3){
+                  <span>{{ order.cartItems[0].count + order.cartItems[1].count + order.cartItems[2].count }} items</span>
+                }@else {
+                  <span>{{ order.cartItems.length }} items</span>
+                }
+              </span>
+              <span class="text-gray-300 select-none">•</span>
+              <span class="inline-flex items-center gap-1.5">
+                <i class="fa-solid fa-location-dot text-gray-400 text-sm"></i>
+                <span>{{ order.shippingAddress.city }}</span>
+              </span>
+            </div>
+
+            
+            <div class="pt-1 flex items-baseline gap-1.5">
+              <span class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+                {{ order.totalOrderPrice }}
+              </span>
+              <span class="text-xs sm:text-sm text-gray-400 font-semibold uppercase">EGP</span>
+            </div>
+          </div>
+        </div>
+
+       
+        <div class="flex flex-col items-end justify-between self-stretch shrink-0">
+       
+          @if(order.paymentMethodType === 'cash'){
+          <div
+            class="w-8 h-8 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 shadow-2xs"
+            title="Cash on delivery"
+          >
+            <i class="fa-regular fa-money-bill-1 text-sm"></i>
+          </div>
+          }@else if(order.paymentMethodType === 'card'){
+          <div
+            class="w-8 h-8 rounded-xl bg-purple-100/70 flex items-center justify-center text-purple-600 shadow-2xs"
+            title="Credit card payment"
+          >
+            <i class="fa-regular fa-credit-card text-sm"></i>
+          </div>
+          }
+
+          <div class="mt-6 sm:mt-auto">
+            <span
+              class="details-btn group-open:hidden inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-700 text-sm font-medium transition-colors shadow-2xs"
+            >
+              <span>Details</span>
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </span>
+            <span
+              class="hide-btn hidden group-open:inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-green-600 hover:bg-green-700 text-white text-sm font-semibold shadow-xs transition-colors"
+            >
+              <span>Hide</span>
+              <i class="fa-solid fa-chevron-up text-xs"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </summary>
+
+    
+    <div class="px-5 pb-6 sm:px-6 sm:pb-6 pt-5 border-t border-gray-100 space-y-5">
+      
+      <div class="space-y-3">
+        <div class="flex items-center gap-2.5 text-sm sm:text-base font-bold text-gray-900">
+          <span
+            class="w-5 h-5 rounded-md bg-emerald-600 text-white flex items-center justify-center text-xs shadow-2xs"
+          >
+            <i class="fa-solid fa-boxes-stacked text-[10px]"></i>
+          </span>
+          <span>Order Items</span>
+        </div>
+
+        @for(product of order.cartItems; track product._id){
+        <div class="bg-white rounded-2xl border border-gray-100/90 p-4 sm:p-5 shadow-2xs">
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4 min-w-0 flex-1">
+              <div
+                class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gray-50 border border-gray-100 p-1.5 flex items-center justify-center shrink-0"
+              >
+                <img
+                  [src]="product.product.imageCover"
+                  [alt]="product.product.title"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm sm:text-base font-bold text-gray-900 truncate leading-snug">
+                  {{ product.product.title }}
+                </h4>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1 font-medium">
+                  {{ product.count }} × {{ product.price }} EGP
+                </p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-base sm:text-lg font-bold text-gray-900">
+                {{ product.price * product.count }}
+              </span>
+              <span class="block text-xs text-gray-400 font-normal uppercase mt-0.5">EGP</span>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+     
+        <div class="bg-white rounded-2xl border border-gray-100 p-5 sm:p-6 shadow-2xs">
+          <div class="flex items-center gap-2.5 text-sm sm:text-base font-bold text-gray-900">
+            <span
+              class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs shadow-2xs"
+            >
+              <i class="fa-solid fa-location-dot text-[11px]"></i>
+            </span>
+            <span>Delivery Address</span>
+          </div>
+          <div class="mt-4">
+            <h5 class="text-base font-bold text-gray-900">{{ order.shippingAddress.city }}</h5>
+            <p class="text-sm text-gray-500 mt-1 leading-relaxed">
+              {{ order.shippingAddress.details }}
+            </p>
+            <div class="flex items-center gap-2 text-sm text-gray-600 mt-3 font-medium">
+              <i class="fa-solid fa-phone text-xs text-gray-400"></i>
+              <span>{{ order.shippingAddress.phone }}</span>
+            </div>
+          </div>
+        </div>
+
+  
+        <div class="bg-[#FFF9EA] rounded-2xl border border-amber-200/80 p-5 sm:p-6 shadow-2xs">
+          <div class="flex items-center gap-2.5 text-sm sm:text-base font-bold text-gray-900">
+            <span
+              class="w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs shadow-2xs"
+            >
+              <i class="fa-solid fa-clock text-[11px]"></i>
+            </span>
+            <span>Order Summary</span>
+          </div>
+          <div class="mt-4 space-y-2.5 text-sm">
+            <div class="flex items-center justify-between text-gray-600">
+              <span>Subtotal</span>
+              <span class="font-semibold text-gray-900">
+                {{ order.totalOrderPrice - order.shippingPrice }} EGP
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-gray-600">
+              <span>Shipping</span>
+              @if(order.shippingPrice > 0){
+              <span class="font-semibold text-gray-900">{{ order.shippingPrice }} EGP</span>
+              }@else {
+              <span class="font-semibold text-gray-900">Free</span>
+              }
+            </div>
+            <div class="pt-3">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-base text-gray-900">Total</span>
+                <span class="font-extrabold text-lg sm:text-xl text-gray-900">
+                  {{ order.totalOrderPrice }} EGP
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+  }
+</div>

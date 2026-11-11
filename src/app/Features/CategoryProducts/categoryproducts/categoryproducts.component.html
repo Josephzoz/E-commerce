@@ -1,0 +1,346 @@
+
+<section
+  [class]="
+    type() === 'brand'
+      ? 'from-[#7F22FE] via-[#8E51FF] to-[#C27AFF]'
+      : 'from-[#16A34A] via-[#22C55E] to-[#4ADE80]'
+  "
+  class="bg-linear-to-r text-white py-8 sm:py-10 lg:py-12 shadow-xs"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+   
+    <nav aria-label="Breadcrumb" class="mb-4 sm:mb-5">
+      <ol class="flex items-center gap-2 text-xs sm:text-sm font-medium">
+        <li>
+          <a
+            routerLink="/home"
+            class="text-white/80 hover:text-white transition-colors duration-200"
+          >
+            Home
+          </a>
+        </li>
+        <li class="text-white/60" aria-hidden="true">/</li>
+        @if (type() === 'brand') {
+          <li>
+            <a
+              routerLink="/brands"
+              class="text-white/80 hover:text-white transition-colors duration-200"
+            >
+              Brands
+            </a>
+          </li>
+        } @else {
+          <li>
+            <a
+              routerLink="/categories"
+              class="text-white/80 hover:text-white transition-colors duration-200"
+            >
+              Categories
+            </a>
+          </li>
+        }
+        
+        <li class="text-white/60" aria-hidden="true">/</li>
+        <li class="text-white font-semibold" aria-current="page">{{ category().name }}</li>
+     
+      </ol>
+    </nav>
+
+   
+    <div class="flex items-center gap-3.5 sm:gap-4 md:gap-5">
+      
+      <div
+        class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl bg-white/20 backdrop-blur-xs flex items-center justify-center shrink-0 border border-white/10 shadow-xs"
+      >
+        
+         @if(category().image){
+          <img [src]="category().image" [alt]="category().name">
+         }@else {
+          <i class="fa-solid fa-box-open text-xl sm:text-2xl md:text-3xl text-white"></i>
+         }
+      </div>
+
+    
+      <div>
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight"
+        >
+          {{ category().name }}
+        </h1>
+        <p class="text-xs sm:text-sm md:text-base text-white/90 font-normal mt-0.5 sm:mt-1">
+          Browse {{ category().name }} products
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-6 sm:py-8 lg:py-10 bg-gray-50/50 min-h-screen flex flex-col justify-between">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex-1">
+   
+    <div class="flex flex-wrap items-center gap-3 mb-4 sm:mb-6">
+      <div class="flex items-center gap-2 text-gray-700 text-sm font-semibold">
+        <i class="fa-solid fa-filter text-xs text-gray-600"></i>
+        <span>Active Filters:</span>
+      </div>
+
+      <div
+        class="inline-flex items-center gap-2 bg-emerald-100/80 text-emerald-800 text-xs sm:text-sm font-medium px-3 py-1.5 rounded-lg border border-emerald-200/60"
+      >
+        <i class="fa-solid fa-folder text-emerald-600 text-xs"></i>
+        <span>{{ category().name || (type() === 'brand' ? 'Brand' : 'Category') }}</span>
+        <a
+          routerLink="/shop"
+          class="text-emerald-700 hover:text-emerald-950 transition-colors ml-0.5 inline-flex items-center cursor-pointer"
+          title="Remove filter"
+          aria-label="Remove filter"
+        >
+          <i class="fa-solid fa-xmark text-xs"></i>
+        </a>
+      </div>
+
+      <a
+        routerLink="/shop"
+        class="text-xs sm:text-sm text-gray-500 hover:text-gray-800 hover:underline transition-colors cursor-pointer"
+      >
+        Clear all
+      </a>
+    </div>
+
+   
+    <div class="mb-4 sm:mb-6">
+      <p class="text-xs sm:text-sm font-medium text-gray-500">
+        Showing {{ products().length }} products
+      </p>
+    </div>
+
+    @if (products().length > 0) {
+     
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5"
+      >
+        @for (product of products(); track product._id) {
+          <!-- @let hasDiscount =
+            $any(product).priceAfterDiscount && $any(product).priceAfterDiscount < product.price;
+          @let rawDiscount =
+            hasDiscount ? 100 - ($any(product).priceAfterDiscount * 100) / product.price : 0;
+          @let discountPercent = rawDiscount - (rawDiscount % 1); -->
+ 
+          <div
+            class="group relative bg-white border border-gray-100 rounded-2xl p-3.5 shadow-xs hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+          >
+            
+            @if (product.priceAfterDiscount) {
+              <span
+                class="absolute top-3 left-3 z-10 bg-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-xs tracking-tight pointer-events-none"
+              >
+                -{{ Math.round(100 - (product.priceAfterDiscount / product.price) * 100) }}%
+              </span>
+            }
+
+            
+            <div class="absolute top-3 right-3 z-10 flex flex-col gap-1.5">
+              <button (click)="addToWishlist(product._id)"
+                type="button"
+                aria-label="Add to Wishlist"
+                class="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full border border-gray-100 shadow-xs flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+              >
+                <i class="fa-regular fa-heart text-xs"></i>
+              </button>
+              <button
+                type="button"
+                aria-label="Compare"
+                class="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full border border-gray-100 shadow-xs flex items-center justify-center text-gray-400 hover:text-emerald-600 transition-colors cursor-pointer"
+              >
+                <i class="fa-solid fa-arrows-rotate text-[11px]"></i>
+              </button>
+              <button
+                type="button"
+                aria-label="Quick View"
+                class="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full border border-gray-100 shadow-xs flex items-center justify-center text-gray-400 hover:text-emerald-600 transition-colors cursor-pointer"
+              >
+                <i class="fa-regular fa-eye text-[11px]"></i>
+              </button>
+            </div>
+
+           
+            <div class="w-full flex justify-center mb-3">
+              <div
+                class="w-[88%] aspect-[3/4] overflow-hidden rounded-md flex items-center justify-center"
+              >
+                <img
+                  [src]="product.imageCover"
+                  [alt]="product.title"
+                  class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            
+            <div class="flex flex-col flex-1 justify-between">
+              <div>
+                
+                <span
+                  class="text-[11px] sm:text-xs text-gray-400 dark:text-gray-400 font-medium block leading-tight mb-1 truncate"
+                >
+                  {{ product.category.name }}
+                </span>
+
+               
+                <h3
+                  class="text-xs sm:text-sm font-semibold text-gray-800 transition-colors cursor-pointer line-clamp-2 h-9 sm:h-10 leading-snug"
+                  [title]="product.title"
+                  [routerLink]="['/p-details', product._id]"
+                >
+                  {{ product.title }}
+                </h3>
+
+                
+                <div class="flex items-center gap-1 mt-1.5">
+                  <div class="flex items-center text-amber-400 text-xs gap-0.5">
+                    @for (star of [1, 2, 3, 4, 5]; track star) {
+                      <i
+                        class="fa-solid fa-star text-[11px]"
+                        [class.text-amber-400]="star <= product.ratingsAverage"
+                        [class.text-gray-300]="star > product.ratingsAverage"
+                      ></i>
+                    }
+                  </div>
+                  <span
+                    class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 font-medium ml-1"
+                  >
+                    {{ product.ratingsAverage }} ({{ product.ratingsQuantity }})
+                  </span>
+                </div>
+              </div>
+
+              
+              <div class="flex items-center justify-between mt-3 pt-1">
+                <div class="flex items-baseline gap-2">
+                  @if (product.priceAfterDiscount) {
+                    <span class="text-sm sm:text-base font-bold text-emerald-600">
+                      {{ $any(product).priceAfterDiscount }} EGP
+                    </span>
+                    <span class="text-xs text-gray-400 line-through font-normal">
+                      {{ product.price }} EGP
+                    </span>
+                  } @else {
+                    <span class="text-sm sm:text-base font-bold text-gray-900">
+                      {{ product.price }} EGP
+                    </span>
+                  }
+                </div>
+
+                <button
+                (click)="addToCart(product._id)"
+                  type="button"
+                  aria-label="Add to cart"
+                  class="w-8 h-8 rounded-full bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white flex items-center justify-center transition-all shadow-xs cursor-pointer shrink-0"
+                >
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      
+      <div class="flex flex-col items-center justify-center text-center py-16 sm:py-24">
+        
+        <div
+          class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gray-100 flex items-center justify-center mb-5 text-gray-400"
+        >
+          <i class="fa-solid fa-box-open text-3xl sm:text-4xl"></i>
+        </div>
+
+        
+        <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+          No Products Found
+        </h2>
+
+        
+        <p class="text-sm sm:text-base text-gray-500 mb-6 max-w-md">
+          No products match your current filters.
+        </p>
+
+        
+        <a
+          routerLink="/shop"
+          class="inline-flex items-center justify-center px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-medium text-sm sm:text-base rounded-lg shadow-xs hover:shadow transition-all duration-200 cursor-pointer"
+        >
+          View All Products
+        </a>
+      </div>
+    }
+  </div>
+
+  
+  <div class="mt-16 border-t border-emerald-100/80 bg-[#f0fdf4] py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="flex items-center gap-3.5">
+          <div
+            class="w-11 h-11 rounded-xl bg-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0"
+          >
+            <i class="fa-solid fa-truck text-base"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-tight">
+              Free Shipping
+            </h4>
+            <p class="text-xs text-gray-500 mt-0.5">On orders over 500 EGP</p>
+          </div>
+        </div>
+
+        
+        <div class="flex items-center gap-3.5">
+          <div
+            class="w-11 h-11 rounded-xl bg-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0"
+          >
+            <i class="fa-solid fa-rotate-left text-base"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-tight">
+              Easy Returns
+            </h4>
+            <p class="text-xs text-gray-500 mt-0.5">14-day return policy</p>
+          </div>
+        </div>
+
+        
+        <div class="flex items-center gap-3.5">
+          <div
+            class="w-11 h-11 rounded-xl bg-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0"
+          >
+            <i class="fa-solid fa-shield-halved text-base"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-tight">
+              Secure Payment
+            </h4>
+            <p class="text-xs text-gray-500 mt-0.5">100% secure checkout</p>
+          </div>
+        </div>
+
+        
+        <div class="flex items-center gap-3.5">
+          <div
+            class="w-11 h-11 rounded-xl bg-emerald-100/80 flex items-center justify-center text-emerald-600 shrink-0"
+          >
+            <i class="fa-solid fa-headset text-base"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 text-sm sm:text-base leading-tight">
+              24/7 Support
+            </h4>
+            <p class="text-xs text-gray-500 mt-0.5">Contact us anytime</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

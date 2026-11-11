@@ -1,0 +1,355 @@
+<app-slider></app-slider>
+
+<section class="bg-gray-50/70 py-6 md:py-8">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap-6">
+      <!-- Free Shipping -->
+      <div
+        class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-gray-100 flex items-center gap-4 transition duration-200 hover:shadow-md"
+      >
+        <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-truck text-blue-500 text-lg"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-800 text-sm md:text-base leading-tight">Free Shipping</h3>
+          <p class="text-xs text-gray-400 mt-1">On orders over 500 EGP</p>
+        </div>
+      </div>
+
+      <!-- Secure Payment -->
+      <div
+        class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-gray-100 flex items-center gap-4 transition duration-200 hover:shadow-md"
+      >
+        <div class="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-shield-halved text-emerald-500 text-lg"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-800 text-sm md:text-base leading-tight">Secure Payment</h3>
+          <p class="text-xs text-gray-400 mt-1">100% secure transactions</p>
+        </div>
+      </div>
+
+      <!-- Easy Returns -->
+      <div
+        class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-gray-100 flex items-center gap-4 transition duration-200 hover:shadow-md"
+      >
+        <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-rotate-left text-orange-500 text-lg"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-800 text-sm md:text-base leading-tight">Easy Returns</h3>
+          <p class="text-xs text-gray-400 mt-1">14-day return policy</p>
+        </div>
+      </div>
+
+      <!-- 24/7 Support -->
+      <div
+        class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-gray-100 flex items-center gap-4 transition duration-200 hover:shadow-md"
+      >
+        <div class="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-headset text-purple-500 text-lg"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-800 text-sm md:text-base leading-tight">24/7 Support</h3>
+          <p class="text-xs text-gray-400 mt-1">Dedicated support team</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-home-categories></app-home-categories>
+
+<section class="py-6 sm:py-8 md:py-10">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <div
+        class="relative overflow-hidden rounded-2xl md:rounded-3xl p-6 sm:p-8 lg:p-10 bg-gradient-to-r from-emerald-600 via-emerald-600 to-emerald-700 text-white shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between min-h-[260px] sm:min-h-[280px]"
+      >
+        <div
+          class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-white/10 pointer-events-none"
+        ></div>
+        <div
+          class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/5 pointer-events-none"
+        ></div>
+        <div
+          class="absolute -bottom-14 -left-14 w-44 h-44 rounded-full bg-black/5 pointer-events-none"
+        ></div>
+
+        <div class="relative z-10">
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-xs text-xs font-semibold text-white w-fit mb-3 sm:mb-4"
+          >
+            <span>🔥</span>
+            <span>Deal of the Day</span>
+          </span>
+
+          <h3
+            class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight mb-2"
+          >
+            Fresh Organic Fruits
+          </h3>
+          <p class="text-white/85 text-xs sm:text-sm font-normal mb-4 sm:mb-5">
+            Get up to 40% off on selected organic fruits
+          </p>
+
+          <div class="flex items-baseline gap-3 mb-6">
+            <span class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight"
+              >40% OFF</span
+            >
+            <span class="text-xs sm:text-sm text-white/90 font-normal">
+              Use code: <span class="font-bold text-white">ORGANIC40</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="relative z-10">
+          <a
+            routerLink="/shop"
+            class="inline-flex items-center gap-2 bg-white text-emerald-700 font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-sm hover:bg-emerald-50 hover:shadow-md transition-all duration-200 group w-fit"
+          >
+            <span>Shop Now</span>
+            <i
+              class="fa-solid fa-arrow-right text-xs transition-transform duration-200 group-hover:translate-x-1"
+            ></i>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="relative overflow-hidden rounded-2xl md:rounded-3xl p-6 sm:p-8 lg:p-10 bg-gradient-to-r from-orange-500 via-orange-500 to-rose-500 text-white shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between min-h-[260px] sm:min-h-[280px]"
+      >
+        <div
+          class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-white/10 pointer-events-none"
+        ></div>
+        <div
+          class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/5 pointer-events-none"
+        ></div>
+        <div
+          class="absolute -bottom-14 -left-14 w-44 h-44 rounded-full bg-black/5 pointer-events-none"
+        ></div>
+
+        <div class="relative z-10">
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-xs text-xs font-semibold text-white w-fit mb-3 sm:mb-4"
+          >
+            <span>✨</span>
+            <span>New Arrivals</span>
+          </span>
+
+          <h3
+            class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight mb-2"
+          >
+            Exotic Vegetables
+          </h3>
+          <p class="text-white/85 text-xs sm:text-sm font-normal mb-4 sm:mb-5">
+            Discover our latest collection of premium vegetables
+          </p>
+
+          <div class="flex items-baseline gap-3 mb-6">
+            <span class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight"
+              >25% OFF</span
+            >
+            <span class="text-xs sm:text-sm text-white/90 font-normal">
+              Use code: <span class="font-bold text-white">FRESH25</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="relative z-10">
+          <a
+            routerLink="/shop"
+            class="inline-flex items-center gap-2 bg-white text-orange-600 font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-sm hover:bg-orange-50 hover:shadow-md transition-all duration-200 group w-fit"
+          >
+            <span>Explore Now</span>
+            <i
+              class="fa-solid fa-arrow-right text-xs transition-transform duration-200 group-hover:translate-x-1"
+            ></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-home-products></app-home-products>
+
+<section class="py-10 sm:py-14 lg:py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      class="relative overflow-hidden rounded-3xl lg:rounded-[2.5rem] bg-[#EDF8F5] border border-emerald-100/70 p-6 sm:p-10 lg:p-12 xl:p-14"
+    >
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+        <div class="lg:col-span-7 flex flex-col justify-center">
+          <div class="flex items-center gap-3.5 mb-5 sm:mb-6">
+            <div
+              class="w-12 h-12 rounded-2xl bg-[#059669] flex items-center justify-center text-white shadow-md shadow-emerald-700/20 shrink-0"
+            >
+              <i class="fa-solid fa-envelope text-lg"></i>
+            </div>
+            <div>
+              <span class="block text-xs font-bold uppercase tracking-wider text-emerald-800"
+                >NEWSLETTER</span
+              >
+              <span class="block text-xs text-gray-500 font-medium">50,000+ subscribers</span>
+            </div>
+          </div>
+
+          <h2
+            class="text-3xl sm:text-4xl lg:text-[2.65rem] font-black tracking-tight leading-tight text-slate-900"
+          >
+            Get the Freshest Updates
+            <span class="block text-[#059669] mt-1 sm:mt-1.5">Delivered Free</span>
+          </h2>
+
+          <p
+            class="text-gray-500 text-sm sm:text-base font-normal mt-3.5 sm:mt-4 mb-6 sm:mb-7 max-w-xl"
+          >
+            Weekly recipes, seasonal offers & exclusive member perks.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6 sm:mb-8">
+            <div
+              class="inline-flex items-center gap-2 bg-white px-3.5 sm:px-4 py-2 rounded-full border border-gray-100 shadow-xs transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-100/80 flex items-center justify-center text-[#059669] shrink-0"
+              >
+                <i class="fa-solid fa-leaf text-[11px]"></i>
+              </div>
+              <span class="text-xs sm:text-sm font-semibold text-gray-700">Fresh Picks Weekly</span>
+            </div>
+
+            <div
+              class="inline-flex items-center gap-2 bg-white px-3.5 sm:px-4 py-2 rounded-full border border-gray-100 shadow-xs transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-100/80 flex items-center justify-center text-[#059669] shrink-0"
+              >
+                <i class="fa-solid fa-truck text-[10px]"></i>
+              </div>
+              <span class="text-xs sm:text-sm font-semibold text-gray-700"
+                >Free Delivery Codes</span
+              >
+            </div>
+
+            <div
+              class="inline-flex items-center gap-2 bg-white px-3.5 sm:px-4 py-2 rounded-full border border-gray-100 shadow-xs transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              <div
+                class="w-6 h-6 rounded-full bg-emerald-100/80 flex items-center justify-center text-[#059669] shrink-0"
+              >
+                <i class="fa-solid fa-tag text-[11px]"></i>
+              </div>
+              <span class="text-xs sm:text-sm font-semibold text-gray-700">Members-Only Deals</span>
+            </div>
+          </div>
+
+          <form
+            (submit)="$event.preventDefault()"
+            class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-xl mb-3"
+          >
+            <div class="relative flex-1">
+              <input
+                type="email"
+                placeholder="you@example.com"
+                class="w-full bg-white text-gray-800 placeholder-gray-400 text-sm sm:text-base px-5 py-3.5 rounded-2xl border border-gray-200/90 focus:outline-none focus:ring-2 focus:ring-emerald-500/25 focus:border-[#059669] shadow-xs transition"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center gap-2 bg-[#059669] hover:bg-[#047857] active:scale-98 text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-2xl shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/40 transition-all duration-200 cursor-pointer shrink-0"
+            >
+              <span>Subscribe</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </form>
+
+          <p class="flex items-center gap-1.5 text-xs text-gray-400">
+            <span class="text-amber-500 text-xs">✨</span>
+            <span>Unsubscribe anytime. No spam, ever.</span>
+          </p>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div
+            class="bg-[#101726] text-white rounded-3xl p-6 sm:p-8 lg:p-8 xl:p-9 shadow-xl shadow-slate-950/15 border border-slate-800/80 flex flex-col justify-between"
+          >
+            <div
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/70 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold uppercase tracking-wider w-fit mb-4"
+            >
+              <i class="fa-solid fa-mobile-screen-button text-xs text-emerald-400"></i>
+              <span>MOBILE APP</span>
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-2">
+              Shop Faster on Our App
+            </h3>
+
+            <p class="text-slate-400 text-xs sm:text-sm font-normal mb-6">
+              Get app-exclusive deals & 15% off your first order.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              <a
+                routerLink="/home"
+                class="flex items-center gap-4 bg-[#1e293b]/70 hover:bg-[#1e293b] border border-slate-700/60 rounded-xl sm:rounded-2xl px-5 py-3 transition-all duration-200 group shadow-xs"
+              >
+                <i
+                  class="fa-brands fa-apple text-3xl text-white group-hover:scale-105 transition-transform shrink-0"
+                ></i>
+                <div class="text-left">
+                  <span
+                    class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider leading-none"
+                  >
+                    DOWNLOAD ON
+                  </span>
+                  <span
+                    class="block text-sm sm:text-base font-semibold text-white tracking-tight leading-tight mt-1"
+                  >
+                    App Store
+                  </span>
+                </div>
+              </a>
+
+              <a
+                routerLink="/home"
+                class="flex items-center gap-4 bg-[#1e293b]/70 hover:bg-[#1e293b] border border-slate-700/60 rounded-xl sm:rounded-2xl px-5 py-3 transition-all duration-200 group shadow-xs"
+              >
+                <i
+                  class="fa-brands fa-google-play text-2xl text-white group-hover:scale-105 transition-transform shrink-0"
+                ></i>
+                <div class="text-left">
+                  <span
+                    class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider leading-none"
+                  >
+                    GET IT ON
+                  </span>
+                  <span
+                    class="block text-sm sm:text-base font-semibold text-white tracking-tight leading-tight mt-1"
+                  >
+                    Google Play
+                  </span>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="flex items-center gap-2 pt-1 border-t border-slate-800/60 sm:border-0 sm:pt-0"
+            >
+              <div class="flex items-center gap-0.5 text-amber-400 text-xs">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="text-xs text-slate-400 font-medium ml-1">4.9 · 100K+ downloads</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

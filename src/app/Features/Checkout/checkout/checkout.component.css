@@ -1,0 +1,51 @@
+  label.payment-option-label:has(input[type="radio"]:checked) {
+    border-width: 2px !important;
+    border-color: #10b981 !important;
+    background-color: rgba(16, 185, 129, 0.05) !important;
+  }
+  label.payment-option-label:has(input[type="radio"]:checked) .payment-icon-box {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+  }
+  label.payment-option-label:has(input[type="radio"]:checked) .payment-title {
+    color: #064e3b !important;
+  }
+  label.payment-option-label:has(input[type="radio"]:checked) .payment-checked-icon {
+    display: flex !important;
+  }
+  label.payment-option-label:has(input[type="radio"]:checked) .payment-unchecked-icon {
+    display: none !important;
+  }
+
+  label.payment-option-label:not(:has(input[type="radio"]:checked)) {
+    border-width: 1px !important;
+    border-color: #e5e7eb !important;
+    background-color: #ffffff !important;
+  }
+  label.payment-option-label:not(:has(input[type="radio"]:checked)) .payment-icon-box {
+    background-color: #f3f4f6 !important;
+    color: #6b7280 !important;
+  }
+  label.payment-option-label:not(:has(input[type="radio"]:checked)) .payment-title {
+    color: #111827 !important;
+  }
+  label.payment-option-label:not(:has(input[type="radio"]:checked)) .payment-checked-icon {
+    display: none !important;
+  }
+  label.payment-option-label:not(:has(input[type="radio"]:checked)) .payment-unchecked-icon {
+    display: flex !important;
+  }
+
+  /* Toggle Order Summary CTA Button based on selected payment radio */
+  section:has(#payment-online:checked) #cta-cash {
+    display: none !important;
+  }
+  section:has(#payment-online:checked) #cta-online {
+    display: flex !important;
+  }
+  section:has(#payment-cash:checked) #cta-cash {
+    display: flex !important;
+  }
+  section:has(#payment-cash:checked) #cta-online {
+    display: none !important;
+  }

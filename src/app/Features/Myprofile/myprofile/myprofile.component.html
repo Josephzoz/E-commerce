@@ -1,0 +1,141 @@
+<section
+  class="bg-gradient-to-r from-[#16A34A] via-[#22C55E] to-[#4ADE80] text-white py-8 sm:py-10 lg:py-12 shadow-xs"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <nav aria-label="Breadcrumb" class="mb-4 sm:mb-5">
+      <ol class="flex items-center gap-2 text-xs sm:text-sm font-medium">
+        <li>
+          <a
+            routerLink="/home"
+            class="text-white/80 hover:text-white transition-colors duration-200"
+          >
+            Home
+          </a>
+        </li>
+        <li class="text-white/60" aria-hidden="true">/</li>
+        <li class="text-white font-semibold" aria-current="page">My Account</li>
+      </ol>
+    </nav>
+
+    <div class="flex items-center gap-3.5 sm:gap-4 md:gap-5">
+      <div
+        class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl bg-white/20 backdrop-blur-xs flex items-center justify-center shrink-0 border border-white/10 shadow-xs"
+      >
+        <i class="fa-solid fa-user text-xl sm:text-2xl md:text-3xl text-white"></i>
+      </div>
+
+      <div>
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight"
+        >
+          My Account
+        </h1>
+        <p class="text-xs sm:text-sm md:text-base text-white/90 font-normal mt-0.5 sm:mt-1">
+          Manage your addresses and account settings
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-8 sm:py-10 lg:py-12 bg-gray-50/60 min-h-[calc(100vh-280px)]">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+      <aside class="lg:col-span-4 xl:col-span-3 w-full">
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
+          <h2 class="text-base sm:text-lg font-bold text-gray-900 mb-4 px-2">My Account</h2>
+
+          <nav class="flex flex-col gap-2">
+            <a
+              routerLink="/myprofile/myaddresses"
+              routerLinkActive
+              #rlaAddresses="routerLinkActive"
+              class="group flex items-center justify-between p-2.5 sm:p-3 rounded-xl transition-all duration-200 cursor-pointer select-none"
+              [class.bg-[#F0FDF4]]="rlaAddresses.isActive"
+              [class.hover:bg-emerald-50]="rlaAddresses.isActive"
+              [class.text-emerald-950]="rlaAddresses.isActive"
+              [class.text-gray-700]="!rlaAddresses.isActive"
+              [class.hover:bg-gray-50]="!rlaAddresses.isActive"
+              [class.hover:text-gray-900]="!rlaAddresses.isActive"
+            >
+              <div class="flex items-center gap-3 min-w-0">
+                <div
+                  class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200"
+                  [class.bg-[#22C55E]]="rlaAddresses.isActive"
+                  [class.text-white]="rlaAddresses.isActive"
+                  [class.shadow-xs]="rlaAddresses.isActive"
+                  [class.bg-gray-100]="!rlaAddresses.isActive"
+                  [class.text-gray-500]="!rlaAddresses.isActive"
+                  [class.group-hover:bg-gray-200/80]="!rlaAddresses.isActive"
+                >
+                  <i class="fa-solid fa-location-dot text-base"></i>
+                </div>
+
+                <span
+                  class="text-sm sm:text-base transition-colors duration-200 truncate"
+                  [class.font-semibold]="rlaAddresses.isActive"
+                  [class.font-medium]="!rlaAddresses.isActive"
+                >
+                  My Addresses
+                </span>
+              </div>
+
+              <i
+                class="fa-solid fa-chevron-right text-xs shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+                [class.text-[#22C55E]]="rlaAddresses.isActive"
+                [class.text-gray-400]="!rlaAddresses.isActive"
+                [class.group-hover:text-gray-600]="!rlaAddresses.isActive"
+              ></i>
+            </a>
+
+            <a
+              routerLink="/myprofile/settings"
+              routerLinkActive
+              #rlaSettings="routerLinkActive"
+              class="group flex items-center justify-between p-2.5 sm:p-3 rounded-xl transition-all duration-200 cursor-pointer select-none"
+              [class.bg-[#F0FDF4]]="rlaSettings.isActive"
+              [class.hover:bg-emerald-50]="rlaSettings.isActive"
+              [class.text-emerald-950]="rlaSettings.isActive"
+              [class.text-gray-700]="!rlaSettings.isActive"
+              [class.hover:bg-gray-50]="!rlaSettings.isActive"
+              [class.hover:text-gray-900]="!rlaSettings.isActive"
+            >
+              <div class="flex items-center gap-3 min-w-0">
+                <div
+                  class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200"
+                  [class.bg-[#22C55E]]="rlaSettings.isActive"
+                  [class.text-white]="rlaSettings.isActive"
+                  [class.shadow-xs]="rlaSettings.isActive"
+                  [class.bg-gray-100]="!rlaSettings.isActive"
+                  [class.text-gray-500]="!rlaSettings.isActive"
+                  [class.group-hover:bg-gray-200/80]="!rlaSettings.isActive"
+                >
+                  <i class="fa-solid fa-gear text-base"></i>
+                </div>
+
+                <span
+                  class="text-sm sm:text-base transition-colors duration-200 truncate"
+                  [class.font-semibold]="rlaSettings.isActive"
+                  [class.font-medium]="!rlaSettings.isActive"
+                >
+                  Settings
+                </span>
+              </div>
+
+              <i
+                class="fa-solid fa-chevron-right text-xs shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+                [class.text-[#22C55E]]="rlaSettings.isActive"
+                [class.text-gray-400]="!rlaSettings.isActive"
+                [class.group-hover:text-gray-600]="!rlaSettings.isActive"
+              ></i>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="lg:col-span-8 xl:col-span-9 w-full min-w-0">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</section>
